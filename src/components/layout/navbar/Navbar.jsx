@@ -1,7 +1,7 @@
 import { AppBar, Box, Hidden, IconButton, Menu, MenuItem, Toolbar } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
-import CartWidget from './CartWidget';
+import CartWidget from '../../common/cartWidget/CartWidget';
 
 const Navbar = ()=> {
     const [verMenu, setAnchorEl] = useState(null);
@@ -15,7 +15,7 @@ const Navbar = ()=> {
     };
 
     return (
-        <AppBar>
+        <AppBar position='static'>
             <Toolbar position="static" sx={{backgroundColor:'#F1F1E9', display: 'flex', justifyContent: 'space-between'}}>
                 <Box sx={{width: {xs: 110, sm: 150}}}>
                     <img src="https://res.cloudinary.com/dwyf1blmt/image/upload/v1687076562/logo_tsv1kb.svg" alt="logotipo" />
