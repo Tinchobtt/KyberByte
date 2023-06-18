@@ -1,7 +1,13 @@
+import Navbar from "./components/layout/navbar/Navbar"
+import Home from "./components/pages/home/Home"
+
 function App() {
 
   return (
-      <h1>KyberByte</h1>
+    <>
+      <Navbar />
+      <Home />
+    </>
   )
   
 }
