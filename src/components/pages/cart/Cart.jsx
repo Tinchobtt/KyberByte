@@ -1,7 +1,9 @@
 
 const Cart = () => {
   return (
-    <div>Cart</div>
+    <div style={{display: 'block', textAlign: 'center', margin: '2rem'}}>
+      Carrito Vacio
+    </div>
   )
 }
 

@@ -17,7 +17,7 @@ const Navbar = ()=> {
 
     return (
         <AppBar position='static'>
-            <Toolbar position="static" sx={{backgroundColor:'#fff', display: 'flex', justifyContent: 'space-between'}}>
+            <Toolbar position="static" sx={{backgroundColor:'#fff', display: 'flex', justifyContent: 'space-between', boxShadow: '0 5px 10px rgba(0,0,0, .25)'}}>
                 <Link to={'/'}>
                     <Box sx={{width: {xs: 110, sm: 150}}}>
                         <img src="https://res.cloudinary.com/dwyf1blmt/image/upload/v1687076562/logo_tsv1kb.svg" alt="logotipo" />
@@ -25,11 +25,10 @@ const Navbar = ()=> {
                 </Link>
                 <Box sx={{display: {md: 'flex'}}}>
                     <Hidden mdDown>
-                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                            <MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Home</MenuItem>
-                            <MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Products</MenuItem>
-                            <MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Ofers</MenuItem>
-                            <MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Help</MenuItem>
+                        <Box sx={{ display: 'flex', alignItems: 'center'}}>
+                            <Link to={'/'}><MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Home</MenuItem></Link>
+                            <Link to={'/category/notebook'}><MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Computers</MenuItem></Link>
+                            <Link to={'/category/celular'}><MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Cellphones</MenuItem></Link>
                         </Box>
                     </Hidden>
                     <Link to={'/cart'}>
@@ -40,10 +39,9 @@ const Navbar = ()=> {
                         open={Boolean(verMenu)}
                         onClose={handleMenuClose}
                         >
-                        <MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Home</MenuItem>
-                        <MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Products</MenuItem>
-                        <MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Ofers</MenuItem>
-                        <MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Help</MenuItem>
+                        <Link to={'/'}><MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Home</MenuItem></Link>
+                        <Link to={'/category/notebook'}><MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Computers</MenuItem></Link>
+                        <Link to={'/category/celular'}><MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Cellphones</MenuItem></Link>
                     </Menu>
                     <IconButton
                         color="inherit"

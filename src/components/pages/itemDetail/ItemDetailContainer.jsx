@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { products } from "../../../productMock";
 import { useParams } from 'react-router-dom';
+import ItemDetail from './ItemDetail';
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
@@ -15,12 +16,7 @@ const ItemDetailContainer = () => {
     tarea.then(res => setProduct(res))
   }, [id])
 
-  return (
-    <div>
-      <h3>{product.title}</h3>
-      <p>{product.precio}</p>
-    </div>
-  )
+  return <ItemDetail product={product}/>
 }
 
 export default ItemDetailContainer
