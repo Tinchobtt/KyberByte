@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { products } from "../../../productMock";
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail';
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
 
-  const {id} = useParams()
+  const {id} = useParams();
+  const navigate = useNavigate()
 
   useEffect(()=>{
     let prodSelect = products.find( prod => prod.id === +id);
@@ -16,7 +17,11 @@ const ItemDetailContainer = () => {
     tarea.then(res => setProduct(res))
   }, [id])
 
-  return <ItemDetail product={product}/>
+  const onAdd = (cant)=>{
+    navigate('/cart')
+  }
+
+  return <ItemDetail product={product} onAdd={onAdd}/>
 }
 
 export default ItemDetailContainer

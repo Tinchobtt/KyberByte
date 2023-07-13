@@ -5,14 +5,14 @@ import CartWidget from '../../common/cartWidget/CartWidget';
 import { Link } from 'react-router-dom';
 
 const Navbar = ()=> {
-    const [verMenu, setAnchorEl] = useState(null);
+    const [verMenu, setVerMenu] = useState(null);
 
     const handleMenuOpen = (event) => {
-        setAnchorEl(event.currentTarget);
+        setVerMenu(event.currentTarget);
     };
     
     const handleMenuClose = () => {
-        setAnchorEl(null);
+        setVerMenu(null);
     };
 
     return (
@@ -29,6 +29,7 @@ const Navbar = ()=> {
                             <Link to={'/'}><MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Home</MenuItem></Link>
                             <Link to={'/category/notebook'}><MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Computers</MenuItem></Link>
                             <Link to={'/category/celular'}><MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Cellphones</MenuItem></Link>
+                            <Link to={'/form'}><MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Form</MenuItem></Link>
                         </Box>
                     </Hidden>
                     <Link to={'/cart'}>

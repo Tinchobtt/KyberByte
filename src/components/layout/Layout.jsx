@@ -5,7 +5,7 @@ import { Box } from "@mui/material"
 
 const Layout = () => {
   return (
-    <Box sx={{minHeight: '100vh', display: 'grid', gridTemplateRows: {xs:'50px auto auto', md: '60px auto auto'}}}>
+    <Box sx={{minHeight: '100vh', display: 'grid', gridTemplateRows: {xs:'50px auto auto', sm: '60px auto auto'}}}>
         <Navbar />
         <Outlet />
         <Footer />

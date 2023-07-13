@@ -1,7 +1,7 @@
 import { Button } from "@mui/material"
 import './ItemDetail.css'
 
-const ItemDetail = ({product}) => {
+const ItemDetail = ({product, onAdd}) => {
   return (
     <div className="prod-container">
       <div className="prod-title">
@@ -19,7 +19,7 @@ const ItemDetail = ({product}) => {
           </div>
           <div className="prod-buttons">
             <Button variant="contained" sx={{width: '100%', marginBottom: '1rem'}}>Comprar ahora</Button>
-            <Button variant="outlined" sx={{width: '100%'}}>Agregar al carrito</Button>
+            <Button variant="outlined" sx={{width: '100%'}} onClick={onAdd}>Agregar al carrito</Button>
           </div>
       </div>
       <div className="prod-desc">
