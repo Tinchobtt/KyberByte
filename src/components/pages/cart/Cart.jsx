@@ -22,7 +22,7 @@ const Cart = () => {
               <span>{prod.title}</span>
             </div>
             <div className="cart-item-quantity">
-              <button onClick={deleteUnit}>-</button>
+              <button onClick={()=>deleteUnit(prod)}>-</button>
               <span>{prod.quantity}</span>
               <button onClick={()=>addToCart(prod, 1)}>+</button>
             </div>

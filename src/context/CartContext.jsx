@@ -1,3 +1,4 @@
+import { ConstructionOutlined } from "@mui/icons-material";
 import { createContext, useState } from "react"
 
 export const CartContext = createContext()
@@ -24,8 +25,15 @@ const CartContextProvider = ({children}) => {
         let newCart = cart.filter( item => item.id !== id);
         setCart(newCart)
     }
-    const deleteUnit = ()=>{
-        alert('Se elimino una unidad')
+    const deleteUnit = (product)=>{
+        let newCart = cart.map( item => {
+            if(item.id === product.id){
+                return {...item, quantity: item.quantity - 1}
+            }else{
+                return item;
+            }
+        })
+        setCart(newCart)
     }
     const clearCart = ()=>{
         setCart([])
