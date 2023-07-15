@@ -1,7 +1,7 @@
 import { Button } from "@mui/material"
 import './ItemDetail.css'
 
-const ItemDetail = ({product, onAdd}) => {
+const ItemDetail = ({product, onAdd, counter, addCounter, subtractCounter}) => {
   return (
     <div className="prod-container">
       <div className="prod-title">
@@ -14,12 +14,17 @@ const ItemDetail = ({product, onAdd}) => {
           <div className="prod-precio">
             <span className="prod-item">{"$ " + product.precio?.toLocaleString('es-ES') || 0}</span>
           </div>
+          <div className="prod-counter">
+            <button onClick={subtractCounter}>-</button>
+            <span>{counter}</span>
+            <button onClick={addCounter}>+</button>
+          </div>
           <div className="prod-stock">
             <span className="prod-item">{"Disponibles: " + product.stock}</span>
           </div>
           <div className="prod-buttons">
             <Button variant="contained" sx={{width: '100%', marginBottom: '1rem'}}>Comprar ahora</Button>
-            <Button variant="outlined" sx={{width: '100%'}} onClick={onAdd}>Agregar al carrito</Button>
+            <Button variant="outlined" sx={{width: '100%'}} onClick={()=>onAdd(counter)}>Agregar al carrito</Button>
           </div>
       </div>
       <div className="prod-desc">

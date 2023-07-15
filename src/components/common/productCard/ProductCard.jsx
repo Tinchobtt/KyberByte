@@ -4,10 +4,13 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../../../context/CartContext';
 
 
 const ProductCard = ( {item} ) => {
-
+  const {addToCart} = useContext(CartContext)
+  
   return (
     <Card sx={{ width: 300}}>
       <Link to={`/itemDetail/${item.id}`} style={{textDecoration: 'none'}}  >
@@ -30,7 +33,7 @@ const ProductCard = ( {item} ) => {
         </CardActionArea>
       </Link>
       <CardActions sx={{display: 'flex', justifyContent: 'center'}}>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={()=>addToCart(item, 1)}> 
           Agregar al carrito
         </Button>
       </CardActions>
