@@ -1,6 +1,3 @@
-.cartContainer{
-
-}
 .cart-item{
     display: grid;
     grid-template-columns: repeat(3, 33%);
@@ -34,7 +31,7 @@
     cursor: pointer;
 }
 .cart-item-quantity span{
-    margin: 1rem;
+    margin: 1rem 0;
 }
 .cart-item-delete{
     justify-self: center;
@@ -52,4 +49,24 @@
     justify-self: center;
     align-self: center;
     font-size: 26px;
+}
+.cartControl{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem;
+}
+.clear-btn{
+    align-self: flex-end;
+}
+.cartCheckout{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: flex-end;
+}
+.cartFinalPrice{
+    font-size: 28px;
+}
+.cartBuyBtn{
+    color: #fff;
 }

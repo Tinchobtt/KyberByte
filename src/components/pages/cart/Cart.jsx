@@ -1,10 +1,11 @@
 import { useContext } from "react"
 import { CartContext } from "../../../context/CartContext"
-import './Cart.css'
 import { Link } from "react-router-dom";
+import './Cart.css'
+import { Button } from "@mui/material";
 
 const Cart = () => {
-  const {cart, addToCart, deleteFromCart, deleteUnit, clearCart, getTotalPrice} = useContext(CartContext);
+  const {cart, deleteFromCart, clearCart, getTotalPrice} = useContext(CartContext);
 
   let total = getTotalPrice();
 
@@ -22,21 +23,21 @@ const Cart = () => {
           return (
           <div className="cart-item" key={prod.id}>
             <div className="cart-item-img">
-              <img src={prod.img} alt={prod.title} />
+              <Link to={`/itemDetail/${prod.id}`}>
+                <img src={prod.img} alt={prod.title} />
+              </Link>
             </div>
             <div className="cart-item-title">
               <span>{prod.title}</span>
             </div>
-            {/* <div className="cart-item-quantity">
-              <button onClick={()=>deleteUnit(prod)}>-</button>
-              <span>{prod.quantity}</span>
-              <button onClick={()=>addToCart(prod, 1)}>+</button>
-            </div> */}
+            <div className="cart-item-quantity">
+              <span>Cantidad: {prod.quantity}</span>
+            </div>
             <div className="cart-item-delete">
               <button onClick={()=>deleteFromCart(prod.id)}>Delete</button>
             </div>
             <div className="cart-item-price">
-              <span>{`$ ${total?.toLocaleString('es-ES') || 0}`}</span>
+              <span>{`$ ${total && total?.toLocaleString('es-ES')}`}</span>
             </div>
           </div>
           )
@@ -47,13 +48,12 @@ const Cart = () => {
       cart.length > 0 && (
         <div className="cartControl">
                 <div className="clear-btn">
-                  <button onClick={clearCart}>Clear cart</button>
+                  <Button variant="outlined" onClick={clearCart}>Limpiar carrito</Button>
                 </div>
                 <div className="cartCheckout">
-                  <span className="cartFinalPrice">{`$ ${total.toLocaleString('es-ES') || 0}`}</span>
-                  <button className="cartFinalPrice-btn"><Link to={'/checkout'}>Finalizar Compra</Link></button>
+                  <span className="cartFinalPrice">{`$ ${total && total.toLocaleString('es-ES')}`}</span>
+                  <Button variant="contained" sx={{marginLeft: '1rem'}}><Link to={'/checkout'} className="cartBuyBtn">Finalizar Compra</Link></Button>
                 </div>
-
         </div>
       )}
     </>

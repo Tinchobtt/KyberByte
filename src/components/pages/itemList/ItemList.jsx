@@ -10,7 +10,7 @@ const ItemList = ( {items} ) => {
             gridTemplateColumns: {xs: '1fr', sm: 'repeat(auto-fit, minmax(300px, 1fr))'},
             justifyItems: 'center',
             gridGap: '2rem', 
-            marginTop: '4rem'
+            margin: '4rem 0'
           }}>
             {
             items.length > 0 ? (
