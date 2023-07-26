@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../../../context/CartContext';
 
-
 const ProductCard = ( {item} ) => {
   const {addToCart} = useContext(CartContext)
   
@@ -32,11 +31,11 @@ const ProductCard = ( {item} ) => {
           </CardContent>
         </CardActionArea>
       </Link>
-      <CardActions sx={{display: 'flex', justifyContent: 'center'}}>
+      {/* <CardActions sx={{display: 'flex', justifyContent: 'center'}}>
         <Button size="small" color="primary" onClick={()=>addToCart(item, 1)}> 
           Agregar al carrito
         </Button>
-      </CardActions>
+      </CardActions> */}
     </Card>
   );
 }

@@ -19,8 +19,8 @@ const Navbar = ()=> {
         <AppBar position='static'>
             <Toolbar position="static" sx={{backgroundColor:'#fff', display: 'flex', justifyContent: 'space-between', boxShadow: '0 5px 10px rgba(0,0,0, .25)'}}>
                 <Link to={'/'}>
-                    <Box sx={{width: {xs: 110, sm: 150}}}>
-                        <img src="https://res.cloudinary.com/dwyf1blmt/image/upload/v1687076562/logo_tsv1kb.svg" alt="logotipo" />
+                    <Box sx={{width: {xs: 140, sm: 220}}}>
+                        <img src="https://res.cloudinary.com/dwyf1blmt/image/upload/v1687076562/ecommerce-react/logo_tsv1kb.svg" alt="logotipo" />
                     </Box>
                 </Link>
                 <Box sx={{display: {md: 'flex'}}}>
@@ -29,7 +29,6 @@ const Navbar = ()=> {
                             <Link to={'/'}><MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Home</MenuItem></Link>
                             <Link to={'/category/notebook'}><MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Computers</MenuItem></Link>
                             <Link to={'/category/celular'}><MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Cellphones</MenuItem></Link>
-                            <Link to={'/form'}><MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Form</MenuItem></Link>
                         </Box>
                     </Hidden>
                     <Link to={'/cart'}>

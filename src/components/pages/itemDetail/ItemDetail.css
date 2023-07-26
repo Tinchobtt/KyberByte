@@ -27,6 +27,27 @@
     font-size: 26px;
     font-weight: 400;
 }
+.prod-counter{
+    margin: 1rem 0;
+}
+.prod-counter-btn{
+    padding: 8px 12px;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    background-color: #1976d2ca;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.prod-counter-btn:hover{
+    background-color: #1976d2;
+}
+.prod-counter-num{
+    margin: 0 1rem;
+    font-size: 18px;
+    font-weight: 500;
+}
 .prod-buttons{
     margin: 2rem 0;
 }

@@ -1,8 +1,9 @@
 import ProductCard from "../../common/productCard/ProductCard";
 import Box from '@mui/material/Box';
+import { Skeleton } from "@mui/material";
 
 const ItemList = ( {items} ) => {
-    
+    let arr = [1,2,3,4]
     return (
         <Box sx={{
             display: 'grid',
@@ -11,9 +12,19 @@ const ItemList = ( {items} ) => {
             gridGap: '2rem', 
             marginTop: '4rem'
           }}>
-            {items.map( (item)=> {
-                return <ProductCard key={item.id} item={item} />;
-            })}
+            {
+            items.length > 0 ? (
+                items.map( (item)=> {
+                    return <ProductCard key={item.id} item={item} />;
+                })
+            ) : (
+                arr.map( (item)=> {
+                    return <div key={item}>
+                        <Skeleton variant="rounded" width={300} height={326} />
+                        </div>
+                })
+            )
+            }
         </Box>
     )
 }

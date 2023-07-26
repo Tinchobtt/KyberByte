@@ -1,0 +1,12 @@
+.form-container{
+    margin-top: 2rem;
+}
+.form-container form{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+.input{
+    max-width: 400px !important;
+    margin-bottom: 1rem !important;
+}

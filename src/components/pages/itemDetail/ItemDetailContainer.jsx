@@ -1,39 +1,57 @@
 import { useContext, useEffect, useState } from 'react';
-import { products } from "../../../productMock";
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail';
 import { CartContext } from '../../../context/CartContext';
+import { toast } from 'react-toastify';
+import { getDoc, collection, doc } from 'firebase/firestore';
+import { db } from '../../../firebaseConfig'
 
 const ItemDetailContainer = () => {
-  const [product, setProduct] = useState({});
-  const [counter, setCounter] = useState(1);
-
+  const {addToCart, getQuantityById} = useContext(CartContext)
   const {id} = useParams();
-  const navigate = useNavigate()
-
-  const {addToCart} = useContext(CartContext)
+  let inital = getQuantityById(id);
+  
+  const [product, setProduct] = useState({});
+  const [counter, setCounter] = useState(inital);
 
   useEffect(()=>{
-    let prodSelect = products.find( prod => prod.id === +id);
-    const tarea = new Promise((res, rej)=>{
-      res(prodSelect)
+    let productsCollection = collection(db, 'products');
+    let productRef = doc(productsCollection,  id);
+    getDoc(productRef).then( res => {
+      let product = {...res.data(), id: res.id};
+      setProduct(product);
     })
-    tarea.then(res => setProduct(res))
   }, [id])
 
   const onAdd = (cant)=>{
     addToCart(product, cant)
-    //navigate('/cart')
   }
 
   const addCounter = ()=>{
-    setCounter(counter + 1);
-  }
-  const subtractCounter = ()=>{
-    setCounter(counter - 1);
+    counter < product.stock ? setCounter(counter + 1) : 
+      toast.warn('Alcanzó la cantidad maxima de este producto!', {
+          position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+      });
   }
 
-  return (<ItemDetail product={product} onAdd={onAdd} counter={counter} addCounter={addCounter} subtractCounter={subtractCounter}/>)
+  const subtractCounter = ()=>{
+    counter > 1 && setCounter(counter - 1);
+  }
+
+  return (<ItemDetail 
+    product={product} 
+    onAdd={onAdd} 
+    counter={counter} 
+    addCounter={addCounter} 
+    subtractCounter={subtractCounter}
+    />)
 }
 
 export default ItemDetailContainer

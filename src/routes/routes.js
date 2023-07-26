@@ -25,8 +25,8 @@ export const routes = [
         Element: Cart
     },
     {
-        id: 'form',
-        path: '/form',
+        id: 'checkout',
+        path: '/checkout',
         Element: checkoutContainer
     }
 ]

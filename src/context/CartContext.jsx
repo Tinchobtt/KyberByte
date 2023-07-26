@@ -1,5 +1,6 @@
-import { ConstructionOutlined } from "@mui/icons-material";
 import { createContext, useState } from "react"
+import Swal from 'sweetalert2';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const CartContext = createContext()
 
@@ -10,7 +11,7 @@ const CartContextProvider = ({children}) => {
         if(isInCart(product.id)){
             let newCart = cart.map( item => {
                 if(item.id === product.id){
-                    return {...item, quantity: item.quantity + cant}
+                    return {...item, quantity: cant}
                 }else{
                     return item;
                 }
@@ -21,10 +22,12 @@ const CartContextProvider = ({children}) => {
             setCart([...cart, productCart])
         }
     }
+
     const deleteFromCart = (id)=>{
         let newCart = cart.filter( item => item.id !== id);
         setCart(newCart)
     }
+
     const deleteUnit = (product)=>{
         let newCart = cart.map( item => {
             if(item.id === product.id){
@@ -35,19 +38,61 @@ const CartContextProvider = ({children}) => {
         })
         setCart(newCart)
     }
+
     const clearCart = ()=>{
-        setCart([])
+        Swal.fire({
+            title: '¿Desea borrar el carrito?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Cancelar',
+            confirmButtonText: 'Borrar',
+            reverseButtons: true
+          }).then((result) => {
+            if (result.isConfirmed) {
+                setCart([])
+                Swal.fire({
+                    title: 'Carrito Borrado!',
+                    confirmButtonColor: '#3085d6'
+                })
+            }
+          })
     }
+
     const isInCart = (id)=>{
         return cart.some( item=> item.id === id)
     }
 
+    const getTotalPrice = ()=>{
+        let total = cart.reduce( (acum, item) =>{
+            return acum + (item.precio * item.quantity);
+        }, 0)
+        return total;
+    }
+
+    const getTotalQuantity = ()=>{
+        let total = cart.reduce( (acum, item) =>{
+            return acum + item.quantity;
+        }, 0)
+        return total;
+    }
+
+    const getQuantityById = (id) =>{
+        let product = cart.find( item => item.id === id );
+        return product ? product.quantity : 1;
+    }
+
     let data = {
         cart,
+        setCart,
         addToCart,
         deleteFromCart,
         deleteUnit,
-        clearCart
+        clearCart,
+        getTotalPrice,
+        getTotalQuantity,
+        getQuantityById
     }
     return (
     <CartContext.Provider value={data}>
