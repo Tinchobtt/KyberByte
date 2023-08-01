@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import { Skeleton } from "@mui/material";
 
 const ItemList = ( {items} ) => {
-    let arr = [1,2,3,4]
+    let arr = [1,2,3,4,5,6]
     return (
         <Box sx={{
             display: 'grid',

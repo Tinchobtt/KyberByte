@@ -1,6 +1,5 @@
 export const products = [
     {
-        id: 1,
         title: 'HP Omen 15Z-EN100',
         precio: 1498600,
         stock: 4,
@@ -13,10 +12,9 @@ export const products = [
             video: 'NVIDIA GeForce RTX 3070'
         },     
         categoria: 'notebook',
-        img: 'https://res.cloudinary.com/dwyf1blmt/image/upload/v1687855477/HP_Omen_15Z-EN100_cobued.webp'
+        img: 'https://res.cloudinary.com/dwyf1blmt/image/upload/v1688927139/ecommerce-react/HP_Omen_15Z-EN100_cobued.webp'
     },
     {
-        id: 2,
         title: 'Lenovo Legion 15ACH6H',
         precio: 653500,
         stock: 2,
@@ -29,10 +27,9 @@ export const products = [
             video: 'NVIDIA GeForce RTX 3060'
         },     
         categoria: 'notebook',
-        img: 'https://res.cloudinary.com/dwyf1blmt/image/upload/v1687869614/Lenovo_Legion_15ACH6H_f8nv0l_qz8fxb.jpg'
+        img: 'https://res.cloudinary.com/dwyf1blmt/image/upload/v1688918236/ecommerce-react/Lenovo_Legion_15ACH6H_f8nv0l_qz8fxb.jpg'
     },
     {
-        id: 3,
         title: 'Motorola Edge 30 Ultra',
         precio: 350000,
         stock: 8,
@@ -45,10 +42,9 @@ export const products = [
             video: 'Adreno 730'
         },     
         categoria: 'celular',
-        img: 'https://res.cloudinary.com/dwyf1blmt/image/upload/v1687855477/Motorola_Edge_30_Ultra_ctdqw9.jpg'
+        img: 'https://res.cloudinary.com/dwyf1blmt/image/upload/v1687855477/ecommerce-react/Motorola_Edge_30_Ultra_ctdqw9.jpg'
     },
     {
-        id: 4,
         title: 'Xiaomi Redmi Note 11',
         precio: 104900,
         stock: 6,
@@ -61,10 +57,9 @@ export const products = [
             video: 'Adreno 610'
         },     
         categoria: 'celular',
-        img: 'https://res.cloudinary.com/dwyf1blmt/image/upload/v1687855482/Xiaomi_Redmi_Note_11_snxkvy.png'
+        img: 'https://res.cloudinary.com/dwyf1blmt/image/upload/v1687855482/ecommerce-react/Xiaomi_Redmi_Note_11_snxkvy.png'
     },
     {
-        id: 5,
         title: 'Dell Inspiron 3511',
         precio: 626867,
         stock: 4,
@@ -77,10 +72,9 @@ export const products = [
             video: 'Intel Iris Xe Graphics G7 96EUs'
         },     
         categoria: 'notebook',
-        img: 'https://res.cloudinary.com/dwyf1blmt/image/upload/v1687855479/Dell_Inspiron_3511_aozwn0.png'
+        img: 'https://res.cloudinary.com/dwyf1blmt/image/upload/v1688918198/ecommerce-react/Dell_Inspiron_3511_aozwn0.png'
     },
     {
-        id: 6,
         title: 'Asus Rog Strix G15 G513RM eclipse',
         precio: 1150000,
         stock: 1,
@@ -93,6 +87,6 @@ export const products = [
             video: 'Nvidia RTX 3060'
         },     
         categoria: 'notebook',
-        img: 'https://res.cloudinary.com/dwyf1blmt/image/upload/v1687855494/Asus_Rog_Strix_G15_G513RM_eclipse_bxcu6h.png'
+        img: 'https://res.cloudinary.com/dwyf1blmt/image/upload/v1688927179/ecommerce-react/Asus_Rog_Strix_G15_G513RM_eclipse_bxcu6h.png'
     }
 ]

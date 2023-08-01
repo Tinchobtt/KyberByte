@@ -5,6 +5,7 @@ import * as Yup from 'Yup';
 import { CartContext } from '../../../context/CartContext';
 import { db } from '../../../firebaseConfig';
 import { doc, addDoc, updateDoc, collection, serverTimestamp } from "firebase/firestore";
+import Swal from 'sweetalert2';
 
 const CheckoutContainer = () => {
     // const [dataForm, setDataForm] = useState({
@@ -51,8 +52,12 @@ const CheckoutContainer = () => {
                 let refDoc = doc(db, 'products', prod.id);
                 updateDoc(refDoc, {stock: prod.stock - prod.quantity})
             });
-            setCart([])
-            action.resetForm()
+            Swal.fire({
+                icon: 'success',
+                title: 'Compra confirmada!'
+            })
+            setCart([]);
+            action.resetForm();
         },
         validationSchema: Yup.object().shape({
             name: Yup.string().required('Este campo es obligatorio.').min(5).max(15),

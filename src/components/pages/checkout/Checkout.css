@@ -1,12 +1,94 @@
-.form-container{
-    margin-top: 2rem;
-}
-.form-container form{
+.checkout-container{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
     padding: 1rem;
 }
+.checkout-container form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 2rem 0;
+}
 .input{
-    max-width: 400px !important;
+    width: 100%;
     margin-bottom: 1rem !important;
+}
+.input-submit{
+    align-self: center;
+}
+.purchaseDetail{
+    order: -1;
+    border: 1px solid #00000076;
+    border-radius: 5px;
+    width: 100%;
+    margin: 1rem 0;
+}
+.purchaseDetail h3{
+    margin: 1rem 1rem 0;
+    font-size: 18px;
+}
+.productDetails{
+    padding: 1rem;
+}
+.productDetail{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    margin-bottom: 5px;
+    padding: 2px 1rem;
+    background-color: #fff;
+}
+.productDetail img{
+    height: 100%;
+}
+.finalPrice{
+    display: flex;
+    justify-content: end;
+    margin: 0 1rem 1rem;
+}
+.msg-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.msg{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+    max-width: 500px;
+    padding: 2rem;
+    border: 2px solid #00000053;
+    border-radius: 10px;
+}
+.msg h3{
+    font-size: 22px;
+}
+.msg p{
+    font-size: 16px;
+}
+.backLink{
+    font-size: 16px;
+    color: #000;
+}
+
+@media (min-width: 900px){
+    .checkout-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .checkout-container form{
+        max-width: 500px;
+    }
+    .purchaseDetail{
+        order: 1;
+        margin-left: 3rem;
+        max-width: 700px;
+    }
 }

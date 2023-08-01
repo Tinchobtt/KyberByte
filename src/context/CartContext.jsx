@@ -28,32 +28,21 @@ const CartContextProvider = ({children}) => {
         setCart(newCart)
     }
 
-    const deleteUnit = (product)=>{
-        let newCart = cart.map( item => {
-            if(item.id === product.id){
-                return {...item, quantity: item.quantity - 1}
-            }else{
-                return item;
-            }
-        })
-        setCart(newCart)
-    }
-
     const clearCart = ()=>{
         Swal.fire({
-            title: '¿Desea borrar el carrito?',
+            title: '¿Desea limpiar el carrito?',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             cancelButtonText: 'Cancelar',
-            confirmButtonText: 'Borrar',
+            confirmButtonText: 'Limpiar',
             reverseButtons: true
           }).then((result) => {
             if (result.isConfirmed) {
                 setCart([])
                 Swal.fire({
-                    title: 'Carrito Borrado!',
+                    title: 'Se limpió el carrito!',
                     confirmButtonColor: '#3085d6'
                 })
             }
@@ -88,7 +77,6 @@ const CartContextProvider = ({children}) => {
         setCart,
         addToCart,
         deleteFromCart,
-        deleteUnit,
         clearCart,
         getTotalPrice,
         getTotalQuantity,

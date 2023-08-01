@@ -29,6 +29,7 @@ const Navbar = ()=> {
                             <Link to={'/'}><MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Home</MenuItem></Link>
                             <Link to={'/category/notebook'}><MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Computers</MenuItem></Link>
                             <Link to={'/category/celular'}><MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Cellphones</MenuItem></Link>
+                            {/* <Link to={'/dashboard'}><MenuItem onClick={handleMenuClose} sx={{color: '#000'}}>Dashboard</MenuItem></Link> */}
                         </Box>
                     </Hidden>
                     <Link to={'/cart'}>
